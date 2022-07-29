@@ -15,6 +15,7 @@ const required = (value) => {
     }
 };
 const Login = (props) => {
+    console.log("OK");
     const form = useRef();
     const checkBtn = useRef();
     const [username, setUsername] = useState("");
