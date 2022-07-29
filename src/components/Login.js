@@ -1,11 +1,9 @@
 import Form from "react-validation/build/form";
 import Input from 'react-validation/build/input';
 import CheckButton from "react-validation/build/button";
-import { isEmail } from 'validator';
-
 import React, { useState, useRef } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { login } from '../actions/auth';
 const required = (value) => {
     if(!value) {
@@ -51,7 +49,7 @@ const Login = (props) => {
         }
     };
     if(isLoggedIn) {
-        return <Redirect to="/profile" />;
+        return <Navigate replace to="/profile" />;
     }
     return (
         <div className="col-md-12">
