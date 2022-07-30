@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Router, Route, Link, Routes, BrowserRouter } from "react-router-dom";
+import { Router, Route, Link, BrowserRouter, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Login from "./components/Login";
@@ -20,7 +20,7 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     history.listen((location) => {
-      dispatch(clearMessage()); 
+      dispatch(clearMessage()); // clear message when changing location
     });
   }, [dispatch]);
   useEffect(() => {
@@ -37,7 +37,7 @@ const App = () => {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            Welcome
+            bezKoder
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -96,7 +96,6 @@ const App = () => {
           )}
         </nav>
         <div className="container mt-3">
-          <BrowserRouter>
             <Routes>
               <Route exact path={["/", "/home"]} component={Home} />
               <Route exact path="/login" component={Login} />
@@ -106,7 +105,6 @@ const App = () => {
               <Route path="/mod" component={BoardModerator} />
               <Route path="/admin" component={BoardAdmin} />
             </Routes>
-          </BrowserRouter>
         </div>
       </div>
     </Router>
